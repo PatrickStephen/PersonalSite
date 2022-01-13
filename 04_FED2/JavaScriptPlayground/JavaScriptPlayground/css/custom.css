@@ -1,0 +1,296 @@
+﻿.jumbotron {
+    margin-top: 20px;
+}
+
+body {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+
+/*************************************
+    Highlight nav for current page
+**************************************/
+.active {
+    background: #3c749a;
+}
+
+
+/*********************************************
+    Custom Nav (overwrite Bootstrap styles)
+**********************************************/
+nav ul {
+    float: right;
+    margin: 0 35px 0 0;
+}
+
+    nav ul li {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    nav ul.dropdown-menu li a:hover {
+        background: #3c749a;
+    }
+
+    nav.navbar-default.navbar-fixed-top ul.dropdown-menu li.active a{
+        background: #3c749a;
+    }
+
+nav.navbar-default.navbar-fixed-top ul li a {
+    font-weight: bold;
+    color: #fff;
+    border: 5px solid rgba(0,0,0,0);
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav.navbar-default.navbar-fixed-top ul li:hover {
+    background: #3c749a;
+}
+
+nav.navbar-default.navbar-fixed-top ul li a:hover {
+    background: #3c749a;
+}
+
+nav ul.dropdown-menu {
+    background-color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+    nav ul.dropdown-menu li {
+        width: 100%;
+    }
+
+
+/*********************************************
+                Hamburger Menu
+**********************************************/
+
+nav a.pull-right{
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    display: none;
+}
+
+/* Tips for Responsive Web Design (RWD)
+
+    -We need Viewport meta tag for the html document
+        - <meta name="viewport" content="width=device=width, initial-scale=1.0" />
+    - Widths as a %
+    - Font sizes as em (except the base font size
+    - Media Queries (represent the breakpoints for where new rules should apply)
+    - JavaScript Tweaks (usually for interactivity --- hamburger menus, side navs, modals, etc.)
+*/
+
+/*IF the viewport is below 850px, hide the menu items and display the hamburger button*/
+@media screen and (max-width: 850px) {
+
+    nav ul#nav-list{
+        display: none;
+    }
+
+    nav a.pull-right{
+        display: inline-block;
+    }
+
+    /* .explanded class is added to the #nav-list when the hamburger button is clicked.
+        This CSS will allow us to 'expand' the menu
+    */
+
+    nav ul#nav-list.expanded {
+        float: none;
+        clear: both;
+        display: block;
+    }
+
+    nav ul#nav-list.expanded li{
+        display: block;
+    }
+
+    nav ul#nav-list.expanded li a {
+        display: block;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    nav li.dropdown ul.dropdown-menu {
+        width: 50%;
+        float: none;
+        margin: auto;
+        position: static;
+    }
+
+}
+
+
+/*********************************************
+            Side / Admin Navigation
+**********************************************/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .9);
+    overflow-x: hidden;
+    padding-top: 100px;
+    transition: .5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: .3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+.button {
+    font-family: sans-serif;
+    background: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 20px;
+    z-index: 1030;
+    position: fixed;
+    left: 0;
+    top:0;
+    cursor: pointer;
+}
+
+.vertical-text {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    writing-mode: vertical-rl;
+    color: white;
+    font-weight: bold;
+}
+
+.important {
+    color: red;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+
+/*************************************
+          CUSTOM LIGHTBOX
+**************************************/
+
+.thumb {
+    cursor: pointer;
+}
+
+#lightbox-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    text-align: center;
+    padding-top: 65px;
+    display: none;
+}
+
+#lightbox-container p {
+    color: #fff;
+}
+
+#lightbox-content img {
+    border: 10px solid gray;
+    margin: auto;
+}
+
+/*************************************
+           FORM VALIDATION
+**************************************/
+
+.invalid {
+    color: red;
+    font-style: italic;
+}
+
+/*************************************
+              JS GAME
+**************************************/
+
+#gameboard {
+    background-image: url(../img/fieldbg.png);
+    min-height: 480px;
+    width: 512px;
+    position: relative;
+}
+
+#ninja {
+    display: inline-block;
+    position: absolute;
+    top: 235px;
+    left: 235px;
+}
+
+#alien {
+    display: none;
+    animation: flash 1s ease-out;
+}
+
+@keyframes flash {
+
+    0% {
+        opacity: .9;
+    }
+
+    12.5% {
+        opacity: .8;
+    }
+
+    25% {
+        opacity: .7;
+    }
+
+    37.5% {
+        opacity: .6;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    62.5% {
+        opacity: .4;
+    }
+
+    75% {
+        opacity: .3;
+    }
+
+    87.5% {
+        opacity: .2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}

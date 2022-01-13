@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Your Name Here" />
+    <meta name="keywords" content="JavaScript Playground, JS, Introduction to JavaScript, JavaScript Fundamentals" />
+    <meta name="description" content="A demo site to learn JavaScript at Centriq Training.  Includes information about JavaScript, jQuery, and jQuery Plugins" />
+    <title>Home | JavaScript Playground</title>
+
+    <!-- Bootstrap Theme -->
+    <link href="css/bootstrap-flatly-theme.min.css" rel="stylesheet" id="theme" />
+    
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet" />
+
+    <!--Favicon-->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <!--Collapsible nav-->
+    <nav class="navbar-default navbar-fixed-top">
+        <a href="index.html" class="navbar-brand">JavaScript Playground</a>
+        <ul class="topnav">
+            <li class="active">
+                <a href="index.html">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li>
+                <a href="jsintro.html">
+                    JavaScript
+                </a>
+            </li>
+            <li>
+                <a href="jqueryintro.html">
+                    jQuery
+                </a>
+            </li>
+            <li>
+                <a href="jqueryplugins.html">
+                    jQuery Plugins
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="jsgames.html">
+                    JS Game
+                </a>
+            </li>
+
+            <!--Navbar Dropdown-->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"
+                   role="button" data-toggle="dropdown" target="_blank"
+                   aria-haspopup="true" aria-expanded="false">
+                    Labs<span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="jslabs.html">
+                            JavaScript
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jquerylabs.html">
+                            jQuery
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+            <!--/Navbar dropdown-->
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </nav><!--/#navbar-->
+    <!--/Main Nav-->
+    <!--Page Header-->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>JavaScript Playground</h1>
+
+            <!-- Bootstrap Modal Button -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cssModal">
+                Modify Current CSS Theme
+            </button>
+
+            <!-- Bootstrap Modal Content -->
+            <div class="modal fade" id="cssModal" tabindex="-1" role="dialog" aria-labelledby="CSSToggleModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="cssOptions">Select a theme</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                This button will call a JS function that will swap the 'href' value of the &lt;link&gt;
+                            </p>
+                            <div>
+                                <button class="btn btn-primary" onclick="toggleTheme()">Toggle Theme</button>
+                            </div>
+
+                            <hr />
+
+                            <p>
+                                Buttons below will pass an argument to a function to set the new theme.
+                            </p>
+                            <button class="btn btn-warning" onclick="setTheme('superhero')">Superhero</button>
+                            <button class="btn btn-success" onclick="setTheme('flatly')">Flatly</button>
+                            <button class="btn btn-info" onclick="setTheme('darkly')">Darkly</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/Page Header-->
+    <!--Main Content-->
+    <main class="container">
+        <div class="row">
+            <article class="col-md-4">
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>JavaScript makes web pages more interactive</li>
+                    <li>Reacts to events like clicks, keystrokes, page load, etc...</li>
+                    <li>Combined with HTML and CSS we have a complete client-side solution to making a static HTML page feel dynamic.</li>
+                </ul>
+            </article>
+            <article class="col-md-4">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>jQuery is a JavaScript Library originally built to use CSS selectors with an easier syntax</li>
+                    <li>Utilize prebuilt JavaScript functions to manipulate objects on our HTML page</li>
+                    <li>jQuery has a more concise syntax and allows us to &trade;Write Less, Do More</li>
+                </ul>
+            </article>
+            <article class="col-md-4">
+                <h2>jQuery Plugins</h2>
+                <ul>
+                    <li>jQuery plugins help to extend the jQuery functionality</li>
+                    <li>Built to interact with a collection of elements</li>
+                    <li>Give developers a large set of tools to make web pages more interactive</li>
+                </ul>
+            </article>
+        </div>
+    </main>
+    <!--/Main Content-->
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">
+                &copy; 2019 - Your Name Here
+            </p>
+            <a href="#" class="btn navbar-btn btn-danger pull-right">
+                Go to the top!
+            </a>
+        </div>
+    </nav>
+    <!--/Footer-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Toggle CSS Theme Script -->
+    <script src="js/dynamictheme.js"></script>
+
+</body>
+</html>

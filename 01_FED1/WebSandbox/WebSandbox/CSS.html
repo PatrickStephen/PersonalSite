@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Basics | Web Sandbox</title>
+    <meta name="description" content="Informantion about formatting HTML pages with CSS" />
+    <meta name="keywords" content="Learning, CSS, website, basics, FED1" />
+    <meta name="author" content="Patrick Stephen" />
+
+    <!--
+        CSS Notes:
+        Slashterisk /* multiline */ (Cannot Nest Comments)
+
+        CSS Syntax:
+       selector {
+           property: value;
+       }
+
+       We can target items to style in different ways
+       1) by tag name
+       2) by id: #idname
+       3) by class name: .classname
+
+        Classes and ids are developer defined
+        IDs are inteded to be used only once per page, but classes are designed to be used as often as needed.
+
+        CSS is case sensitive
+
+        We can incorporate CSS into our HTML pages in 3 ways
+        1) INLINE styling - use the style attribute on a particular tag.
+        2) INTERNAL Stylesheets - use style tags in the head element of page
+        3) EXTERNAL Stylesheets - use link tags in the head that point to a CSS stylesheet
+
+        NOTE: IMPORTING stylesheets - uses and @import at the top of an external stylesheet to link two or more stylesheets together. This practice is largely deprecated but you could see it in legacy code
+
+        We can target items to style in different ways
+        1) target by tag name - most generic
+        2) target by class name (.className) - more specific
+            a. class selectors are denoted by a period
+            b. they can be used as often as needed
+            c. they are applied to html tags using the class attribute
+                ex. <h1 class="alert">Alert</h1>
+        3) target by id name (#IdName)
+            a. id selectors denoted by a #
+            b. should only be used once per page (unique identifiers)
+            c. applied to HTML tags using the id attribute
+                ex. <h1 id="Alert">Alert</h1>
+
+        -->
+    <!-- Increasing Specificity by Combining Selectors
+
+       Selectors can be combined in 3 ways
+       1) Compound Selector
+           a. instead of applying styles to just one selector, you use a comma
+               separated listed of selectors.
+       2) Descendant Selector
+           a. apply styles to selectors nested in the provided hierarchy
+           b. each selector is separated by a space.
+       3) Adjacent Selector
+           a. apply styles to a selector given a certain class or id
+           b. this is done to increase specificity
+           c. they are not separated by anything
+
+
+       IMPORTANT: Precedence = Proximity + Specificity
+    -->
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <style>
+        /*
+            We are in CSS mode within our HTML page.
+            Style tags should always go in the head section of a page.
+        */
+        /*tag selector example*/
+        h1 {
+            color: darkblue;
+            font-size: 24px;
+        }
+
+        main {
+            background-color: lightgray;
+        }
+        /*use class as a selector*/
+        .headingStyle {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        /*using id as a selector*/
+        #asideHeader {
+            background-color: teal;
+            color: darkorange;
+        }
+        /*any h2 with the classname headingStyle*/
+        /**/
+        h2.headingStyle, aside h2 {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!--Inline styling, Highest in proximity and specificty, least reusable-->
+        <div id="headerOverlay">
+            <h1>Web &nbsp; Sandbox</h1> <!-- Site Title in a page banner-->
+            <p>Notes and Recourses for HTML and CSS</p><!-- Site tage lIne -->
+        </div>
+    </header>
+    <!-- TODO Add Nav Bar to CSS.Html -->
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="HTML.html">HTML.html</a>
+            </li>
+            <li>
+                <a href="CSS.html">CSS.html</a>
+            </li>
+            <li>
+                <a href="/resources/index.html">Resources</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <aside id="cssRightColumn">
+            <h2 id="asideHeader">Topics</h2>
+            <div class="asideWrapper">
+                <ul class="asideList">
+                    <li>
+                        <a href="css_topics/Colors.html">Colors</a>
+                    </li>
+                    <li>
+                        <a href="css_topics/">Fonts</a>
+                    </li>
+                    <li>
+                        <a href="css_topics/Images.html">Images</a>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 id="asideHeader"> External Resources</h2>
+            <div class="asideWrapper">
+                <ul class="asideList">
+                    <li><a href="https://www.w3schools.com/css/default.asp">W3Schools (Links to an external site.) CSS</a></li>
+                    <li><a href="https://htmlcheatsheet.com/css/" target="_blank">Online Interactive Cheatsheet</a></li>
+                    <li><a href="http://enjoycss.com/" target="_blank">CSS Generator</a></li>
+                    <li><a href="https://css-tricks.com" target="_blank">CSS Tricks</a></li>
+                    <li><a href="https://css-tricks.com/pseudo-class-selectors" target="_blank">CSS Tricks - Pseudo Class Selectors</a></li>
+                    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validators</a></li>
+                    <li><a href="http://www.sololearn.com/Course/CSS" target="_blank">Solo Learn CSS</a></li>
+                    <li><a href="http://www.csszengarden.com" target="_blank">CSS Zen Garden</a></li>
+                    <li><a href="http://www.tutorialspoint.com/css" target="_blank">Tutorials Point CSS</a></li>
+                    <li><a href="http://htmldog.com/guides/css" target="_blank">HTML Dog (CSS)</a></li>
+                    <li><a href="http://caniuse.com" target="_blank">Can I Use</a></li>
+                    <li><a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank">CSS Reset</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <section class="mainWrapper" id="cssLeftColumn">
+            <!--core content, separate from aside sidebar-->
+            <article>
+                <h1>Different Ways to Apply CSS</h1>
+                <section>
+                    <h2 class="headingStyle">Inline Style</h2>
+                    Inline styles use the STYLE attribute inside an HTML tag...
+                    Usually avoided (except for formatting assigned through JavaScript)
+                    because it's not reusable. Uses semi-colon-separated, CSS property-value
+                    pairs in the style attribute's value.
+                    Highest in terms of proximity and specificity, least re-usable.
+                </section>
+
+                <section>
+                    <h2 class="headingStyle">Internal Style</h2>
+                    Internal style is defined inside the HEAD tag of a page
+                    (not header tag). Reusuability is only for that page. Not often used.
+                    Second in terms of proximity and specificity is determined by selectors used in each rule set.
+                </section>
+
+                <section>
+                    <h2 class="headingStyle">External Style</h2>
+                    External style is defined as a link inside the HEAD block of a page
+                    (not header). Actual styles are in that linked CSS file.
+                    Reusuability can be for whole site. Best practice.
+                    Least in terms of proximity and specificity is determined by selectors used in each rule set.
+                </section>
+
+                <section>
+                    <h2 class="headingStyle">Imported Style</h2>
+                    Imported style is defined as an import url() statement at the top
+                    of an external style sheet. Actual CSS is in that linked CSS file.
+                    Reusuability is for the whole site. This practice is largely depricated but can be seen in legacy code.
+                </section>
+
+            </article>
+            <article>
+                <h1>CSS Selectors</h1>
+                <section>
+                    <h2 class="headingStyle">By Element/Tag Name</h2> Ex: ul or li
+                </section>
+                <section>
+                    <h2 class="headingStyle">By Class</h2> Ex: Call it by adding
+                    the class attribute to a tag. Can be used multiple times
+                    per page. Define it in the CSS using period prefix (.)
+
+                </section>
+                <section>
+                    <h2 class="headingStyle">By ID</h2> Ex: Call it by adding
+                    the ID attribute to a tag. Can be used one time
+                    per page. Define it in the CSS using hashtag prefix (#)
+
+                </section>
+
+            </article>
+
+        </section>
+        <div class="clear"></div>
+    </main>
+    <footer>
+        &copy; Copyright 2021 Patrick Stephen
+    </footer>
+</body>
+</html>

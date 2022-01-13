@@ -1,0 +1,73 @@
+﻿@model MVC2EFSecured.DATA.EF.Book
+
+@{
+    ViewBag.Title = Model.BookTitle + " Details";
+}
+
+<div class="formContainer pt-3 w-75">
+    <div class="h2 text-center">
+        @Html.DisplayFor(model => model.BookTitle)
+    </div>
+    <div class="row m-0">
+        <div class="col-md-4">
+            <p><img src="~/Content/assets/images/Books/@Model.BookImage" alt="@Model.BookTitle" /></p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.ISBN)</strong>
+                @Html.DisplayFor(model => model.ISBN)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.IsSiteFeature)</strong>@Html.DisplayFor(model => model.IsSiteFeature)
+            </p>
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    <strong>@Html.DisplayNameFor(model => model.UnitsSold)</strong>@Html.DisplayFor(model => model.UnitsSold)
+                </p>
+                <p>
+                    <strong>@Html.DisplayNameFor(model => model.BookRoyalty.RoyaltyRate)</strong>@Html.DisplayFor(model => model.BookRoyalty.RoyaltyRate)
+                </p>
+            }
+        </div>
+        <div class="col-md-8">
+            <p class="text-right">
+                <strong>@Html.DisplayNameFor(model => model.Price)</strong>
+                @Html.DisplayFor(model => model.Price)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.BookStatus.BookStatusName)</strong>
+                @Html.DisplayFor(model => model.BookStatus.BookStatusName)
+            </p>
+
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Publisher.PublisherName)</strong>
+                @Html.DisplayFor(model => model.Publisher.PublisherName)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.PublishDate)</strong>
+                @Html.DisplayFor(model => model.PublishDate)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Genre.GenreName)</strong>
+                @Html.DisplayFor(model => model.Genre.GenreName)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.IsGenreFeature)</strong>
+                @*@Html.DisplayFor(model => model.IsGenreFeature)*@
+                <span>@(Model.IsGenreFeature ? "Yes" : "No") </span>
+            </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Description)</strong></p>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }, new { @class = "btn btn-success" })
+            }
+        </div>
+        <div class="col-md-6 text-right">
+            @Html.ActionLink("Back to Books", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</div>

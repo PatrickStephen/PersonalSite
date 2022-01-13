@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Patrick Stephen" />
+    <meta name="keywords" content="JavaScript Playground, JS, Introduction to JavaScript, JavaScript Fundamentals" />
+    <meta name="description" content="A demo site to learn JavaScript at Centriq Training.  Includes information about JavaScript, jQuery, and jQuery Plugins" />
+    <title>Intro to JavaScript | JavaScript Playground</title>
+
+    <!-- Bootstrap Theme -->
+    <link href="css/bootstrap-flatly-theme.min.css" rel="stylesheet" />
+
+    <!--Custom CSS-->
+    <link href="css/custom.css" rel="stylesheet" />
+	
+	<!--Favicon-->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <!--Collapsible nav-->
+    <nav class="navbar-default navbar-fixed-top">
+        <a href="index.html" class="navbar-brand">JavaScript Playground</a>
+
+        <!-- Hamburger Button -->
+    <a href="javascript:void(0)" class="pull-right" onclick="toggleNav()" id="menu-btn">
+        &#9776;
+        
+    </a>
+    <!-- javascript:void(0) can be used to prevent an <a> tag from sending a request and reloading
+        the page, but it still allows the element to be clickable like an <a> tag would.
+        &#9776; produces a simple hamburger button -->
+
+        <!-- Added the id="nav-list" to the <ul> below -->
+        <ul class="topnav" id="nav-list">
+            <li>
+                <a href="index.html">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li class="active">
+                <a href="jsintro.html">
+                    JavaScript
+                </a>
+            </li>
+            <li>
+                <a href="jqueryintro.html">
+                    jQuery
+                </a>
+            </li>
+            <li>
+                <a href="jqueryplugins.html">
+                    jQuery Plugins
+                </a>
+            </li>
+            <!--Navbar Dropdown-->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"
+                   role="button" data-toggle="dropdown" target="_blank"
+                   aria-haspopup="true" aria-expanded="false">
+                    Labs<span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="jslabs.html">
+                            JavaScript
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jquerylabs.html">
+                            jQuery
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+            <!--/Navbar dropdown-->
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </nav><!--/#navbar-->
+    <!--/Main Nav-->
+    <!--Page Header-->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Introduction to JavaScript</h1>
+        </div>
+    </div>
+    <!--/Page Header-->
+    <!--Main Content-->
+    <main class="container">
+        
+        <div class="row">
+
+            <article class="col-md-4">
+                <h2>Arrays</h2>
+                <strong id="yourcolor"></strong>
+                <p>
+                    The color displayed above was selected for you from an array.
+                </p>
+            </article>
+
+            <article class="col-md-4">
+                <h2>Functions</h2>
+                <p>
+                    Functions can be written in JS and called upon in reaction to an event. Allow
+                    the user to enter a color. When they click a button (event), call a function that 
+                    will display a message along with their input.
+                </p>
+
+                <!-- 3 Key Pieces for working with Input and Output in JS -->
+
+                <!-- 1. Textbox for the user input -->
+                <div>
+                    <input type="text" class="form-control" placeholder="Favorite Color" id="tbFavColor" />
+                </div>
+
+                <!-- 2. Button to click that will call our function -->
+                <div>
+                    <input type="button" class="btn btn-success" value="Show Message" onclick="displayFavoriteColor()" />
+                </div>
+
+                <!-- 3. Element to output a message -->
+                <span id="color-message"></span>
+
+
+            </article>
+
+            <article class="col-md-4">
+                <h2>Water Weight</h2>
+                <p>
+                    Assume a gallon of water weighs 8.33lbs. Allow a user to enter a number of gallons.
+                    Upon clicking a button, call a function to calculate the total weight and display that value.
+                </p>
+
+                <!-- 1. Textbox for user input -->
+                <div>
+                    <input type="number" class="form-control" id="tbNbrGallons" placeholder="# of gallons" />
+                </div>
+
+                <!-- 2. Button to call a funciton -->
+                <div>
+                    <!-- We can use the onclick attribute, OR an event listener (see main.js) -->
+                    <!--<input type="button" class="btn btn-warning" value="Calculate Weight" id="btnCalcWeight"
+                           onclick="calcWaterWeight()" /> -->
+                    <input type="button" class="btn btn-warning" value="Calculate Weight" id="btnCalcWeight" />
+                </div>
+
+                <!-- 3. Output element -->
+                <div id="weight-result"></div>
+
+
+            </article>
+
+        </div>
+
+        <div class="row">
+
+            <article class="col-md-4">
+                <h2>Loops</h2>
+                <p>
+                    Looping also exists in JS. Here, we use a for loop to display 1-10.
+                </p>
+                <span id="loop-to-ten"></span>
+            </article>
+
+
+            <article class="col-md-4">
+                <h2>Single Milestone</h2>
+                <p>
+                    Allow a user to enter thier age. When they click a button, call a function
+                    that uses a switch to determine if there are any milestones for them.
+                </p>
+
+                <!-- 1. Textbox for user input -->
+                <div>
+                    <input type="number" id="tbUserAgeSingleMilestone" class="form-control" placeholder="Enter your age" />
+                </div>
+
+                <!-- 2. Button to call a funciton -->
+                <div>
+                    <input type="button" class="btn btn-danger" value="Single Milestone" id="btnSingleMilestone" />
+                </div>
+
+                <!-- 3. Output element -->
+                <span id="single-milestone"></span>
+
+
+            </article>
+
+
+            <article class="col-md-4">
+                <h2>Multiple Milestones</h2>
+                <p>
+                    Allows a user to enter their age. WHen they click a button, call a function that uses
+                    if/else to display all milestone that they have reached.
+                </p>
+
+                <!-- 1. Textbox for user input -->
+                <div>
+                    <input type="number" id="tbUserAgeMultiMilestone" class="form-control" placeholder="Enter your age" />
+                </div>
+      
+                <!-- 2. Button to call a funciton -->
+                <div>
+                    <input type="button" class="btn btn-primary" value="Show Milestones" id="btnMultiMileStones" />
+                </div>
+                
+                <!-- 3. Output element -->
+                <span id="multiple-milestones"></span>
+
+            </article>
+
+
+        </div>
+
+    </main>
+    <!--/Main Content-->
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">
+                &copy; <span id="copyright"></span> - Patrick Stephen
+            </p>
+            <a href="#" class="btn navbar-btn btn-danger pull-right">
+                Go to the top!
+            </a>
+        </div>
+    </nav>
+    <!--/Footer-->
+
+    <!-- Admin Button -->
+    <div id="admin-btn" class="button" onclick="openAdminNav()">
+        <span class="vertical-text">ADMIN</span>
+    </div>
+
+    <!-- Admin Nav -->
+    <div id="admin-nav" class="sidenav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeAdminNav()">&times;</a>
+        <a href="#">Users Admin</a>
+        <a href="#">Roles Admin</a>
+    </div>
+
+    <!-- Toggle Admin Menu -->
+    <script type="text/javascript">
+        function openAdminNav() {
+            document.getElementById('admin-btn').style.display = "none";
+            document.getElementById('admin-nav').style.width = "250px";
+        }
+
+        function closeAdminNav() {
+            document.getElementById('admin-btn').style.display = "block";
+            document.getElementById('admin-nav').style.width = "0";
+        }
+    </script>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript! -->
+    <script src="js/main.js"></script>
+
+    <!-- Toggle Hamburger Menu -->
+    <script>
+        function toggleNav() {
+
+            let navList = document.getElementById('nav-list');
+            navList.classList.toggle('expanded');
+
+            let btnMenu = document.getElementById('menu-btn');
+            if (navList.classList.contains('expanded')) {
+                btnMenu.innerHTML = "&times;";
+            }
+            else {
+                btnMenu.innerHTML = "&#9776;";
+            }
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MVC2EFSecured.DATA.EF.Book>
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<h2>@ViewBag.Title</h2>
+<div id="indexWrapper">
+
+    <p>
+        @Html.ActionLink("Add new Book", "Create", null, new { @class = "btn btn-success" })
+
+    </p>
+
+    <table class="table">
+        <tr>
+            <th class="col-md-1">
+
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.BookTitle)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.BookStatus.BookStatusName)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Genre.GenreName)
+            </th>
+
+            <th class="col-md-3"></th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details",new {id=item.BookID})" title="@item.BookTitle">
+                        <img src="~/Content/assets/images/Books/t_@item.BookImage" alt="@item.BookTitle" />
+                    </a>
+                    @*@Html.DisplayFor(modelItem => item.BookImage)*@
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = item.BookID })" title="@item.BookTitle">
+                        @Html.DisplayFor(modelItem => item.BookTitle)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookStatus.BookStatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.GenreName)
+                </td>
+
+                <td class="text-right">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookID }, new { @class = "btn btn-primary btn-sm" })
+                    @if (item.BookAuthors.Count == 0 && item.BookRoyalty == null)
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.BookID }, new { @class = "btn btn-danger btn-sm" })
+                    }
+                    else
+                    {
+                        <span class="btn btn-danger disabled btn-sm"><em>In Use</em></span>
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

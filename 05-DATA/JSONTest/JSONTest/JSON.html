@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>JSON Object Creation in JS</h2>
+    <p id="demo"></p>
+
+    <script>
+
+        var jsonTEXT = '{"name":"James Bond","codename":"007","movie":"Goldeneye"}';
+        var jsonObj = JSON.parse(jsonTEXT);
+
+        document.getElementById('demo').innerHTML =
+            jsonObj.name + "<br/>" +
+            jsonObj.codename + "<br/>" +
+            jsonObj.movie;
+
+    </script>
+</body>
+</html>
